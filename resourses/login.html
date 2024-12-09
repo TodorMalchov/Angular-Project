@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Навигационно меню</title>
-    <link rel="stylesheet" href="home.css">
+  <title>Форма за Вход</title>
+  <link rel="stylesheet" href="login.css">
 </head>
 <body>
     <header>
@@ -36,6 +36,27 @@
             </ul>
     </nav>
 
-    <script src="script.js"></script>
+
+    <div class="login-container">
+        <form class="login-form">
+            <h2>Вход</h2>
+            <div class="error-message" id="error-message">
+                <!-- Съобщението за грешка ще се появява тук -->
+            </div>
+            <div class="form-group">
+                <label for="username">Потребителско име</label>
+                <input type="text" id="username" name="username" placeholder="Въведете потребителско име">
+            </div>
+            <div class="form-group">
+                <label for="password">Парола</label>
+                <input type="password" id="password" name="password" placeholder="Въведете парола">
+            </div>
+            <button type="submit">Вход</button>
+            <hr>
+            <p>Ако все още нямаш акаунт може да се регистрираш от <a href="register.html">Тук!</a></p>
+        </form>
+    </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
