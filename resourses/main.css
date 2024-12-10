@@ -4,9 +4,87 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
 }
-
+/* Logo and contact */
 header {
-    background-color: #007bff;
+    background-color: #f1f1f1;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex;
+    justify-content: space-between;
+}
+
+.logo img {
+    max-width: 80px;
+}
+
+.phone {
+    font-size: 18px;
+}
+/* nav bar */
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background-color: #f1f1f1;
+}
+
+nav li {
+    display: inline-block;
+    position: relative;
+}
+nav ul li a {
+    /* Общи стилове за всички връзки в менюто */
+    display: block;
+    padding: 15px;
+    text-decoration: none;
+    color: #333;
+}
+
+/* Стилове само за бутоните за вход и регистрация */
+.right-btn {
+    position:relative;
+    text-align: right;
+    justify-content: flex-end;
+    background-color: #4CAF50; /* Зелен цвят */
+    color: white;
+    border-radius: 5px;
+}
+
+nav a {
+    display: block;
+    padding: 15px;
+    text-decoration: none;
+    color: #333;
+}
+
+.dropdown {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown li {
+    display: block;
+    padding: 15px;
+    text-align: left;
+}
+
+.dropdown li a:hover {
+    background-color: #f1f1f1;
+}
+
+nav li:hover .dropdown {
+    display: block;
+}
+
+/* main component */
+.header {
+    background-color:  #4CAF50;
     color: white;
     padding: 20px;
     text-align: center;
@@ -18,7 +96,7 @@ main {
 
 .gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
 }
 
@@ -44,6 +122,19 @@ main {
 }
 
 .gallery-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.create{
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-decoration: solid;
+    justify-content:center;
+    font-family: Arial, sans-serif;
+}
+.create:hover{
     transform: scale(1.05);
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
 }

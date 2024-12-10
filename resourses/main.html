@@ -8,13 +8,47 @@
 </head>
 <body>
     <header>
-        <h1>Добре дошли на моя сайт</h1>
+        <div class="logo">
+            <img src="logo.png" alt="Лого на сайта">
+        </div>
+        <div class="phone">
+            <p>Contact us: +359 123 456 789</p>
+        </div>
     </header>
+    <nav>
+
+            <ul>
+                <li>
+                    <a href="#">Home</a>
+                    <ul class="dropdown">
+                        <li><a href="#">Процесори</a></li>
+                        <li><a href="#">Видео карти</a></li>
+                        <li><a href="#">Дънни платки</a></li>
+                        <li><a href="#">Рам памети</a></li>
+                        <li><a href="#">Памети</a></li>
+                        <li><a href="#">Захранвания</a></li>
+                        <li><a href="#">Кутии</a></li>
+                        <li><a href="#">Охладители</a></li>
+                    </ul>
+                </li>
+                <li><a href="main.html">Компютри</a></li>
+                <li><a href="#">Контакти</a></li>
+                <li class="right-btn"><a href="login.html">Вход</a></li>
+                <li class="right-btn"><a href="register.html">Регистрация</a></li>
+            </ul>
+    </nav>
+
+    <div class="header">
+        <h1>Компютърни конфигурации</h1>
+    </div>
     <main>
         <section class="gallery">
             <div class="gallery-item">
                 <img src="https://api.technopolis.bg/medias/503567.jpg-Listing-grid?context=bWFzdGVyfHJvb3R8NDQyMjh8aW1hZ2UvanBlZ3xhR1E0TDJneVpDOHpNekl6TWpZek56YzFOVFF5TWk1cWNHY3xlNDYwYWQyNzc2ODY3ODg5YTBlYjQ4NTU0YzFhYzE4NTg3NThiNmVjNDVlMzI0Mzc5OTQxYjY5OGQ4OTQ2MTA4" alt="Описание на снимката 1">
-                <p>Описание на снимката 1</p>
+                <p>Процесор: I7 125500h</p>
+                <p>Видео карта RX6700XT 12gb</p>
+                <p>RAM 32gb</p>
+                <p>1000gb ssd</p>
             </div>
             <div class="gallery-item">
                 <img src="https://static.plasico.bg/thumbs/10/fortron-cmt195a.jpg" alt="Описание на снимката 2">
@@ -65,6 +99,7 @@
                 <p>RAM 32gb</p>
                 <p>1000gb ssd</p>
             </div>
+            <button class="create">Добави конфигурация</button>
         </section>
     </main>
 </body>
