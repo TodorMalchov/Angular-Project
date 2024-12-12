@@ -1,46 +1,76 @@
 <div class="form-container">
-    <form class="data-form">
+    <form class="data-form" [formGroup]="configurationForm" (ngSubmit)="createConfiguraton()">
         <h2>Форма за добавяне</h2>
         <div class="form-group">
             <label for="field1">Процесор:</label>
-            <input type="text" id="field1" name="field1" placeholder="Въведете име">
+            <input type="text" id="field1" name="field1" formControlName="procesors">
         </div>
+            <ng-container *ngIf="configurationForm.get('procesors')?.touched">
+                <p class="error-message" *ngIf="configurationForm.get('procesors')?.errors?.['required']">Процесора е задължителен!</p>
+            </ng-container>
         <div class="form-group">
             <label for="field2">Видео карта:</label>
-            <input type="text" id="field2" name="field2">
+            <input type="text" id="field2" name="field2" formControlName="video_cart">
         </div>
+            <ng-container *ngIf="configurationForm.get('video_cart')?.touched">
+                <p class="error-message" *ngIf="configurationForm.get('video_cart')?.errors?.['required']">Видео картата е задължителна!</p>
+            </ng-container>
         <div class="form-group">
-            <label for="field3">Дънна платка:</label>
-            <input type="email" id="field3" name="field3">
+            <label for="field3">RAM памет:</label>
+            <input type="text" id="field4" name="field4" formControlName="ram_memories">
         </div>
+            <ng-container *ngIf="configurationForm.get('ram_memories')?.touched">
+                <p class="error-message" *ngIf="configurationForm.get('ram_memories')?.errors?.['required']">Рам паметта е задължителна!</p>
+            </ng-container>
         <div class="form-group">
-            <label for="field4">RAM памет:</label>
-            <input type="tel" id="field4" name="field4">
+            <label for="field4">Дънна платка:</label>
+            <input type="text" id="field3" name="field3" formControlName="mother_board">
         </div>
+            <ng-container *ngIf="configurationForm.get('mother_board')?.touched">
+                <p class="error-message" *ngIf="configurationForm.get('mother_board')?.errors?.['required']">Дънната платка е задължителна!</p>
+            </ng-container>
         <div class="form-group">
             <label for="field5">Памет:</label>
-            <input type="password" id="field5" name="field5">
+            <input type="text" id="field5" name="field5" formControlName="memories">
         </div>
+            <ng-container *ngIf="configurationForm.get('memories')?.touched">
+                <p class="error-message" *ngIf="configurationForm.get('memories')?.errors?.['required']">Паметта е задължителна!</p>
+            </ng-container>
         <div class="form-group">
             <label for="field6">Захранване:</label>
-            <input type="text" id="field6" name="field6">
+            <input type="text" id="field6" name="field6" formControlName="power_supply">
         </div>
+            <ng-container *ngIf="configurationForm.get('power_supply')?.touched">
+                <p class="error-message" *ngIf="configurationForm.get('power_supply')?.errors?.['required']">Захранването е задължително!</p>
+            </ng-container>
         <div class="form-group">
-            <label for="field7">Кутия:</label>
-            <input type="text" id="field7" name="field7">
+            <label for="field7">Охлаждане:</label>
+            <input type="text" id="field8" name="field8" formControlName="cooling">
         </div>
+            <ng-container *ngIf="configurationForm.get('cooling')?.touched">
+                <p class="error-message" *ngIf="configurationForm.get('cooling')?.errors?.['required']">Охлаждането е задължително!</p>
+            </ng-container>
         <div class="form-group">
-            <label for="field8">Охлаждане:</label>
-            <input type="text" id="field8" name="field8">
+            <label for="field8">Кутия:</label>
+            <input type="text" id="field7" name="field7" formControlName="computer_case">
         </div>
+            <ng-container *ngIf="configurationForm.get('computer_case')?.touched">
+                <p class="error-message" *ngIf="configurationForm.get('computer_case')?.errors?.['required']">Кутията е задължителна!</p>
+            </ng-container> 
         <div class="form-group">
-            <label for="field9">Поле 9: Дата на раждане</label>
-            <input type="date" id="field9" name="field9">
+            <label for="field9">Снимка:</label>
+            <input type="text" id="field9" name="field9"formControlName="img">
         </div>
+            <ng-container *ngIf="configurationForm.get('img')?.touched">
+                <p class="error-message" *ngIf="configurationForm.get('img')?.errors?.['required']">Снимката е задължителна!</p>
+            </ng-container> 
         <div class="form-group">
             <label for="field10">Описание:</label>
-            <textarea id="field10" name="field10" placeholder="Въведете забележки"></textarea>
+            <textarea id="field10" name="field10" formControlName="description"></textarea>
         </div>
-        <button type="submit">Изпрати</button>
+        <ng-container *ngIf="configurationForm.get('description')?.touched">
+            <p class="error-message" *ngIf="configurationForm.get('description')?.errors?.['required']">Описанието е задължително!</p>
+        </ng-container>
+        <button >Изпрати</button>
     </form>
 </div>

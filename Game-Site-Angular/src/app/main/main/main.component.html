@@ -1,61 +1,62 @@
 <main>
     <section class="gallery">
-        <div class="gallery-item">
+        <div class="gallery-item" *ngFor="let configuration of configurations">
             <img src="https://api.technopolis.bg/medias/503567.jpg-Listing-grid?context=bWFzdGVyfHJvb3R8NDQyMjh8aW1hZ2UvanBlZ3xhR1E0TDJneVpDOHpNekl6TWpZek56YzFOVFF5TWk1cWNHY3xlNDYwYWQyNzc2ODY3ODg5YTBlYjQ4NTU0YzFhYzE4NTg3NThiNmVjNDVlMzI0Mzc5OTQxYjY5OGQ4OTQ2MTA4" alt="Описание на снимката 1">
-            <p>Процесор: I7 125500h</p>
-            <p>Видео карта RX6700XT 12gb</p>
-            <p>RAM 32gb</p>
-            <p>1000gb ssd</p>
-        </div>
-        <div class="gallery-item">
-            <img src="https://static.plasico.bg/thumbs/10/fortron-cmt195a.jpg" alt="Описание на снимката 2">
-            <p>Процесор: I7 125500h</p>
-            <p>Видео карта RX6700XT 12gb</p>
-            <p>RAM 32gb</p>
-            <p>1000gb ssd</p>
-        </div>
-        <div class="gallery-item">
-            <img src="https://static.plasico.bg/resources/inaza-blackship.jpg" alt="Описание на снимката 3">
-            <p>Процесор: I7 125500h</p>
-            <p>Видео карта RX6700XT 12gb</p>
-            <p>RAM 32gb</p>
-            <p>1000gb ssd</p>
-        </div>
-        <div class="gallery-item">
-            <img src="https://allstore.bg/userfiles/productthumbs/thumb_759809.jpg" alt="Описание на снимката 4">
-            <p>Процесор: I7 125500h</p>
-            <p>Видео карта RX6700XT 12gb</p>
-            <p>RAM 32gb</p>
-            <p>1000gb ssd</p>
-        </div>
-        <div class="gallery-item">
-            <img src="https://api.technopolis.bg/medias/P11010201-logo.jpg?context=bWFzdGVyfGltYWdlc3wyMDQzNXxpbWFnZS9qcGVnfGFXMWhaMlZ6TDJnNE1TOW9NR0l2TVRjME9ETTJNRFU1TURFek5ESXVhbkJufGRlNDU3NWRiYTgyY2M5NzgxOWRiODU4YTgyYTQ4Njc3OWIxZTAwYzg3ODQxYTY2ODk0YTZmNTljOGY3OTQ5MmI" alt="Описание на снимката 1">
-            <p>Процесор: I7 125500h</p>
-            <p>Видео карта RX6700XT 12gb</p>
-            <p>RAM 32gb</p>
-            <p>1000gb ssd</p>
-        </div>
-        <div class="gallery-item">
-            <img src="https://igcomputers.bg/thumbs/1/240606161116pic23300000000011155.jpg" alt="Описание на снимката 2">
-            <p>Процесор: I7 125500h</p>
-            <p>Видео карта RX6700XT 12gb</p>
-            <p>RAM 32gb</p>
-            <p>1000gb ssd</p>
-        </div>
-        <div class="gallery-item">
-            <img src="https://s13emagst.akamaized.net/products/15188/15187279/images/res_44116bf82dc775127335f7aba3509421.jpg?width=720&height=720&hash=4F2A3C176CD289E8513E4E136C00D283" alt="Описание на снимката 3">
-            <p>Процесор: I7 125500h</p>
-            <p>Видео карта RX6700XT 12gb</p>
-            <p>RAM 32gb</p>
-            <p>1000gb ssd</p>
-        </div>
-        <div class="gallery-item">
-            <img src="https://static.plasico.bg/thumbs/12/200429103218626806131deepcool-matrexx-50-add-rgb-4f.jpg" alt="Описание на снимката 4">
-            <p>Процесор: I7 125500h</p>
-            <p>Видео карта RX6700XT 12gb</p>
-            <p>RAM 32gb</p>
-            <p>1000gb ssd</p>
+            <p>Процесор: {{configuration.procesors}}</p>
+            <p>Видео карта {{configuration.video_cart}}</p>
+            <p>RAM {{configuration.ram_memories}}</p>
+            <p>1000gb {{configuration.memories}}</p>
         </div>
         <button class="create" routerLink="/create-configuration">Добави конфигурация</button>
     </section>
 </main>
+
+<!-- <div class="gallery-item">
+    <img src="https://static.plasico.bg/thumbs/10/fortron-cmt195a.jpg" alt="Описание на снимката 2">
+    <p>Процесор: I7 125500h</p>
+    <p>Видео карта RX6700XT 12gb</p>
+    <p>RAM 32gb</p>
+    <p>1000gb ssd</p>
+</div>
+<div class="gallery-item">
+    <img src="https://static.plasico.bg/resources/inaza-blackship.jpg" alt="Описание на снимката 3">
+    <p>Процесор: I7 125500h</p>
+    <p>Видео карта RX6700XT 12gb</p>
+    <p>RAM 32gb</p>
+    <p>1000gb ssd</p>
+</div>
+<div class="gallery-item">
+    <img src="https://allstore.bg/userfiles/productthumbs/thumb_759809.jpg" alt="Описание на снимката 4">
+    <p>Процесор: I7 125500h</p>
+    <p>Видео карта RX6700XT 12gb</p>
+    <p>RAM 32gb</p>
+    <p>1000gb ssd</p>
+</div>
+<div class="gallery-item">
+    <img src="https://api.technopolis.bg/medias/P11010201-logo.jpg?context=bWFzdGVyfGltYWdlc3wyMDQzNXxpbWFnZS9qcGVnfGFXMWhaMlZ6TDJnNE1TOW9NR0l2TVRjME9ETTJNRFU1TURFek5ESXVhbkJufGRlNDU3NWRiYTgyY2M5NzgxOWRiODU4YTgyYTQ4Njc3OWIxZTAwYzg3ODQxYTY2ODk0YTZmNTljOGY3OTQ5MmI" alt="Описание на снимката 1">
+    <p>Процесор: I7 125500h</p>
+    <p>Видео карта RX6700XT 12gb</p>
+    <p>RAM 32gb</p>
+    <p>1000gb ssd</p>
+</div>
+<div class="gallery-item">
+    <img src="https://igcomputers.bg/thumbs/1/240606161116pic23300000000011155.jpg" alt="Описание на снимката 2">
+    <p>Процесор: I7 125500h</p>
+    <p>Видео карта RX6700XT 12gb</p>
+    <p>RAM 32gb</p>
+    <p>1000gb ssd</p>
+</div>
+<div class="gallery-item">
+    <img src="https://s13emagst.akamaized.net/products/15188/15187279/images/res_44116bf82dc775127335f7aba3509421.jpg?width=720&height=720&hash=4F2A3C176CD289E8513E4E136C00D283" alt="Описание на снимката 3">
+    <p>Процесор: I7 125500h</p>
+    <p>Видео карта RX6700XT 12gb</p>
+    <p>RAM 32gb</p>
+    <p>1000gb ssd</p>
+</div>
+<div class="gallery-item">
+    <img src="https://static.plasico.bg/thumbs/12/200429103218626806131deepcool-matrexx-50-add-rgb-4f.jpg" alt="Описание на снимката 4">
+    <p>Процесор: I7 125500h</p>
+    <p>Видео карта RX6700XT 12gb</p>
+    <p>RAM 32gb</p>
+    <p>1000gb ssd</p>
+</div> -->

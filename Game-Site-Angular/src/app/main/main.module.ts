@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { MainComponent } from './main/main.component';
 import { AddConfigurationComponent } from './add-configuration/add-configuration.component';
 import { MainRoutingModule } from './main-routing.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ConfigurationComponent } from './configuration/configuration.component';
 
 
 
@@ -10,14 +12,17 @@ import { MainRoutingModule } from './main-routing.module';
 @NgModule({
   declarations: [
     MainComponent,
-    AddConfigurationComponent
+    AddConfigurationComponent,
+    ConfigurationComponent
   ],
   imports: [
     CommonModule,
-    MainRoutingModule
+    MainRoutingModule,
+    ReactiveFormsModule
   ],
   exports:[
-    MainComponent
+    // MainComponent,
+
   ]
 })
 export class MainModule { }

@@ -1,18 +1,25 @@
 <div class="login-container">
-    <form class="login-form">
+    <form class="login-form" [formGroup]="form" (ngSubmit)="login()">
         <h2>Вход</h2>
         <div class="error-message" id="error-message">
             <!-- Съобщението за грешка ще се появява тук -->
         </div>
         <div class="form-group">
             <label for="username">Потребителско име</label>
-            <input type="text" id="username" name="username" placeholder="Въведете потребителско име">
+            <input type="text" id="username" name="username" placeholder="Въведете потребителско име" formControlName="email">
         </div>
+        <ng-container *ngIf="form.get('email')?.touched">
+            <p class="error-message" *ngIf="form.get('email')?.errors?.['required']">Имейла е задължителен!</p>
+        </ng-container>
         <div class="form-group">
             <label for="password">Парола</label>
-            <input type="password" id="password" name="password" placeholder="Въведете парола">
+            <input type="password" id="password" name="password" placeholder="Въведете парола" formControlName="password">
         </div>
-        <button type="submit">Вход</button>
+            <ng-container *ngIf="form.get('password')?.touched">
+                <p class="error-message" *ngIf="form.get('password')?.errors?.['required']">Паролата е задължителна!</p>
+                <p class="error-message" *ngIf="form.get('password')?.errors?.['minlength']">Паролата трябва да бъде поне 6 символа!</p>
+            </ng-container>
+        <button [disabled]="form.invalid">Вход</button>
         <hr>
         <p>Ако все още нямаш акаунт може да се регистрираш от <a routerLink="/register">Тук!</a></p>
     </form>
