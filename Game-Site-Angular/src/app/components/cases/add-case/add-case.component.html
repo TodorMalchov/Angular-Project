@@ -1,0 +1,29 @@
+<div class="form-container">
+    <form class="data-form" [formGroup]="caseForm" (ngSubmit)="createCase()">
+        <h2>Форма за добавяне</h2>
+        <div class="form-group">
+            <label for="field1">Модел на кутията:</label>
+            <input type="text" id="field1" name="field1" formControlName="caseModel">
+        </div>
+            <ng-container *ngIf="caseForm.get('caseModel')?.touched">
+                <p class="error-message" *ngIf="caseForm.get('caseModel')?.errors?.['required']">Модела на кутията е задължителен!</p>
+            </ng-container> 
+        <div class="form-group">
+            <label for="field9">Снимка:</label>
+            <input type="text" id="field9" name="field9"formControlName="img">
+        </div>
+            <ng-container *ngIf="caseForm.get('img')?.touched">
+                <p class="error-message" *ngIf="caseForm.get('img')?.errors?.['required']">Снимката е задължителна!</p>
+            </ng-container> 
+        <div class="form-group">
+            <label for="field10">Описание:</label>
+            <textarea id="field10" name="field10" formControlName="description"></textarea>
+        </div>
+        <ng-container *ngIf="caseForm.get('description')?.touched">
+            <p class="error-message" *ngIf="caseForm.get('description')?.errors?.['required']">Описанието е задължително!</p>
+        </ng-container>
+        <button >Изпрати</button>
+    </form>
+</div>
+
+

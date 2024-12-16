@@ -1,0 +1,27 @@
+<div class="form-container">
+    <form class="data-form" [formGroup]="powerSupplyForm" (ngSubmit)="createPowerSupply()">
+        <h2>Форма за добавяне</h2>
+        <div class="form-group">
+            <label for="field1">Модела на захранване: </label>
+            <input type="text" id="field1" name="field1" formControlName="powerSupplyModel">
+        </div>
+        <ng-container *ngIf="powerSupplyForm.get('powerSupplyModel')?.touched">
+            <p class="error-message" *ngIf="powerSupplyForm.get('powerSupplyModel')?.errors?.['required']">Модел на захранването е задължително!</p>
+        </ng-container>
+        <div class="form-group">
+            <label for="field9">Снимка:</label>
+            <input type="text" id="field9" name="field9"formControlName="img">
+        </div>
+            <ng-container *ngIf="powerSupplyForm.get('img')?.touched">
+                <p class="error-message" *ngIf="powerSupplyForm.get('img')?.errors?.['required']">Снимката е задължителна!</p>
+            </ng-container> 
+        <div class="form-group">
+            <label for="field10">Описание:</label>
+            <textarea id="field10" name="field10" formControlName="description"></textarea>
+        </div>
+        <ng-container *ngIf="powerSupplyForm.get('description')?.touched">
+            <p class="error-message" *ngIf="powerSupplyForm.get('description')?.errors?.['required']">Описанието е задължително!</p>
+        </ng-container>
+        <button >Изпрати</button>
+    </form>
+</div>

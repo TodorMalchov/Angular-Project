@@ -1,0 +1,33 @@
+import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AddComponentsService } from '../../add-components.service';
+import { Router } from '@angular/router';
+
+@Component({
+  selector: 'app-add-procesors',
+  templateUrl: './add-procesors.component.html',
+  styleUrls: ['./add-procesors.component.css']
+})
+export class AddProcesorsComponent {
+  public procesorForm: FormGroup
+
+  constructor(private addComponentService: AddComponentsService, private router: Router, private fb: FormBuilder){
+    this.procesorForm= this.fb.group({
+      id: ['',[Validators.required]],
+      procesorModel: ['',[Validators.required]],
+      img: ['',[Validators.required]],
+      description: ['',[Validators.required]],
+    })
+  }
+
+  createProcesor(): void{
+    if(this.procesorForm.invalid){
+      alert('Трябва да попълните всички полета')
+      return
+    }
+
+    this.addComponentService.addProcesor(this.procesorForm.value)
+    this.router.navigate(['/main'])
+  }
+
+}
