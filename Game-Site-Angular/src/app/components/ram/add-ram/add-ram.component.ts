@@ -13,7 +13,7 @@ public ramForm: FormGroup
 
   constructor(private addComponentService: AddComponentsService, private router: Router, private fb: FormBuilder){
     this.ramForm= this.fb.group({
-      id: ['',[Validators.required]],
+      id: [''],
       ramModel: ['',[Validators.required]],
       img: ['',[Validators.required]],
       description: ['',[Validators.required]],

@@ -5,22 +5,52 @@
             <!-- Съобщението за грешка ще се появява тук -->
         </div>
         <div class="form-group">
-            <label for="username">Email</label>
-            <input type="text" id="username" name="username" placeholder="john_doe@abv.bg" formControlName="">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="john_doe@abv.bg" formControlName="email">
         </div>
+        <ng-container *ngIf="form.get('email')?.touched">
+            <p class="error-message" id="error-message" *ngIf="form.get('email')?.errors?.['required']">
+                Имейла е задължителен!
+              </p>
+              <p class="error"  *ngIf="form.get('email')?.errors?.['emailValidator']">
+                  Email is not valid!
+              </p>
+        </ng-container>
         <div class="form-group">
             <label for="username">Username</label>
-            <input type="text" id="username" name="username" placeholder="JohnDoe23">
+            <input type="text" id="username" name="username" placeholder="JohnDoe23" formControlName="username">
         </div>
+        <ng-container *ngIf="form.get('username')?.touched">
+            <p class="error-message" id="error-message" *ngIf="form.get('username')?.errors?.['required']">
+                Потребителското име е задължително!
+              </p>
+              <p class="error-message" id="error-message" *ngIf="form.get('username')?.errors?.['minlength']">
+                Потребителското трябва да бъде поне 5 символа!
+              </p>
+        </ng-container>
+    <ng-container formGroupName="passGroup">
         <div class="form-group">
             <label for="password">Password</label>
-            <input type="password" id="password" name="password" placeholder="password">
+            <input type="password" id="password" name="password" placeholder="password" formControlName="password">
         </div>
+        <ng-container *ngIf="form.get('passGroup')?.get('password')?.touched">
+            <p class="error" *ngIf="form.get('passGroup')?.get('password')?.errors?.['required']" >
+                Паролата е задължителна!
+            </p>
+            <p class="error" *ngIf="form.get('passGroup')?.get('password')?.errors?.['minlength']">
+                Паролата трябва да бъде поне 6 символа!
+            </p>
+            </ng-container>
         <div class="form-group">
             <label for="password">Repassword</label>
-            <input type="password" id="password" name="password" placeholder="rePassword">
+            <input type="password" id="password" name="password" placeholder="rePassword" formControlName="rePassword">
         </div>
-        <button type="submit">Вход</button>
+        <ng-container *ngIf="form.get('passGroup')?.get('rePassword')?.touched">
+            <p class="error" *ngIf="form.get('passGroup')?.errors?.['passwordValidator']">
+                Паролите не съвпадат!</p>
+        </ng-container>
+    </ng-container>
+        <button>Вход</button>
         <hr>
         <p>Ако вече имаш съществуващ акаут влез от <a routerLink="/login">Тук!</a></p>
     </form>

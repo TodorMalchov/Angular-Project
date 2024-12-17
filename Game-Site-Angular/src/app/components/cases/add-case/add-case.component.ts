@@ -13,7 +13,7 @@ export class AddCaseComponent {
 
   constructor(private addComponentService: AddComponentsService, private router: Router, private fb: FormBuilder){
     this.caseForm= this.fb.group({
-      id: ['',[Validators.required]],
+      id: [''],
       caseModel: ['',[Validators.required]],
       img: ['',[Validators.required]],
       description: ['',[Validators.required]]

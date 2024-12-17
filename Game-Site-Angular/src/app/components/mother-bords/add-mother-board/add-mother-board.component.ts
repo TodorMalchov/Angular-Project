@@ -13,7 +13,7 @@ public motherBoardForm: FormGroup
 
   constructor(private addComponentService: AddComponentsService, private router: Router, private fb: FormBuilder){
     this.motherBoardForm= this.fb.group({
-      id: ['',[Validators.required]],
+      id: [''],
       motherBoardModel: ['',[Validators.required]],
       img: ['',[Validators.required]],
       description: ['',[Validators.required]],

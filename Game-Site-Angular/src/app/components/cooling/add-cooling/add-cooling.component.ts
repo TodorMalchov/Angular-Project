@@ -13,14 +13,15 @@ public coolingForm: FormGroup
 
   constructor(private addComponentService: AddComponentsService, private router: Router, private fb: FormBuilder){
     this.coolingForm= this.fb.group({
-      id: ['',[Validators.required]],
-      procesorModel: ['',[Validators.required]],
+      id: [''],
+      coolerModel: ['',[Validators.required]],
       img: ['',[Validators.required]],
       description: ['',[Validators.required]]
     })
   }
 
   createCooling(): void{
+    console.log(this.coolingForm.value)
     if(this.coolingForm.invalid){
       alert('Трябва да попълните всички полета')
       return

@@ -13,7 +13,7 @@ public powerSupplyForm: FormGroup
 
   constructor(private addComponentService: AddComponentsService, private router: Router, private fb: FormBuilder){
     this.powerSupplyForm= this.fb.group({
-      id: ['',[Validators.required]],
+      id: [''],
       powerSupplyModel: ['',[Validators.required]],
       img: ['',[Validators.required]],
       description: ['',[Validators.required]],

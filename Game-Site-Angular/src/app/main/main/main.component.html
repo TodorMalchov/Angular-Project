@@ -7,7 +7,7 @@
             <p>RAM {{configuration.ram_memories}}</p>
             <p>1000gb {{configuration.memories}}</p>
         </div>
-        <button class="create" routerLink="/create-configuration">Добави конфигурация</button>
+        <button class="create" *ngIf="(user$ | async)" routerLink="/create-configuration">Добави конфигурация</button>
     </section>
 </main>
 

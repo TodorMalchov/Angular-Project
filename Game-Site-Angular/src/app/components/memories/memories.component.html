@@ -1,12 +1,10 @@
 <main>
     <section class="gallery">
-        <div class="gallery-item">
+        <div class="gallery-item" *ngFor="let component of components">
             <img src="https://static.plasico.bg/thumbs/10/fortron-cmt195a.jpg" alt="Описание на снимката 2">
-            <p>Процесор: I7 125500h</p>
-            <p>Видео карта RX6700XT 12gb</p>
-            <p>RAM 32gb</p>
-            <p>1000gb ssd</p>
+            <p>{{component.memorieModel}}</p>
+            <p>{{component.description}}</p>
         </div>
-        <button class="create" routerLink="/memories/add-memories">Добави памети</button>
+        <button class="create" *ngIf="(user$ | async)" routerLink="/memories/add-memories">Добави памети</button>
     </section>
 </main>

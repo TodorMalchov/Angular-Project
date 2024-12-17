@@ -13,7 +13,7 @@ public videoCardForm: FormGroup
 
   constructor(private addComponentService: AddComponentsService, private router: Router, private fb: FormBuilder){
     this.videoCardForm= this.fb.group({
-      id: ['',[Validators.required]],
+      id: [''],
       videoCardModel: ['',[Validators.required]],
       img: ['',[Validators.required]],
       description: ['',[Validators.required]],

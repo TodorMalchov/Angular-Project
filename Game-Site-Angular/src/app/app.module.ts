@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { importProvidersFrom, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -10,10 +10,17 @@ import {AngularFireModule} from '@angular/fire/compat'
 import { environment } from '../../src/environments/environment'
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { ComponentsModule } from './components/components.module';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { getAuth, provideAuth } from '@angular/fire/auth';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+
+
+
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -23,9 +30,10 @@ import { ComponentsModule } from './components/components.module';
     ComponentsModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
     AngularFirestoreModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [importProvidersFrom([provideFirebaseApp(()=> initializeApp(environment.firebase)),provideAuth(()=>getAuth())])],
+  bootstrap: [AppComponent] 
 })
 export class AppModule { }

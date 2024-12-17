@@ -8,6 +8,7 @@ import { UserService } from 'src/app/user/user.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
+  user$ = this.userService.user$
   constructor(private userService: UserService, private router: Router){}
   
   logout(){

@@ -13,7 +13,7 @@ export class AddProcesorsComponent {
 
   constructor(private addComponentService: AddComponentsService, private router: Router, private fb: FormBuilder){
     this.procesorForm= this.fb.group({
-      id: ['',[Validators.required]],
+      id: ['',],
       procesorModel: ['',[Validators.required]],
       img: ['',[Validators.required]],
       description: ['',[Validators.required]],
@@ -21,6 +21,7 @@ export class AddProcesorsComponent {
   }
 
   createProcesor(): void{
+    console.log(this.procesorForm.value)
     if(this.procesorForm.invalid){
       alert('Трябва да попълните всички полета')
       return

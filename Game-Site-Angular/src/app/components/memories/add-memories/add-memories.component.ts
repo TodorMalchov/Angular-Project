@@ -13,7 +13,7 @@ public memorieForm: FormGroup
 
   constructor(private addComponentService: AddComponentsService, private router: Router, private fb: FormBuilder){
     this.memorieForm= this.fb.group({
-      id: ['',[Validators.required]],
+      id: [''],
       memorieModel: ['',[Validators.required]],
       img: ['',[Validators.required]],
       description: ['',[Validators.required]]
