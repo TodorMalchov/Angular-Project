@@ -27,7 +27,7 @@ export class AddCaseComponent {
     }
 
     this.addComponentService.addCase(this.caseForm.value)
-    this.router.navigate(['/main'])
+    this.router.navigate(['/computer_case'])
   }
 
 }

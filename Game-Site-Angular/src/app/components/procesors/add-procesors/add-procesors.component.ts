@@ -28,7 +28,7 @@ export class AddProcesorsComponent {
     }
 
     this.addComponentService.addProcesor(this.procesorForm.value)
-    this.router.navigate(['/main'])
+    this.router.navigate(['/procesors'])
   }
 
 }

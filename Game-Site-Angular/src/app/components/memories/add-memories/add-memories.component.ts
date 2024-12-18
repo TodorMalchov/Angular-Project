@@ -27,6 +27,6 @@ public memorieForm: FormGroup
     }
 
     this.addComponentService.addMemories(this.memorieForm.value)
-    this.router.navigate(['/main'])
+    this.router.navigate(['/memories'])
   }
 }

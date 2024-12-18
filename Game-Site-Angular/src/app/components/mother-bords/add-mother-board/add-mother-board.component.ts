@@ -27,6 +27,6 @@ public motherBoardForm: FormGroup
     }
 
     this.addComponentService.addMotherBoard(this.motherBoardForm.value)
-    this.router.navigate(['/main'])
+    this.router.navigate(['/mother-bords'])
   }
 }

@@ -27,6 +27,6 @@ public videoCardForm: FormGroup
     }
 
     this.addComponentService.addVideoCard(this.videoCardForm.value)
-    this.router.navigate(['/main'])
+    this.router.navigate(['/video-cards'])
   }
 }

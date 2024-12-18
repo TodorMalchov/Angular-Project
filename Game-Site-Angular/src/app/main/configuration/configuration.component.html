@@ -1,16 +1,16 @@
-<div class="container">
+<div class="container" *ngIf="configuration">
     <div class="profile">
-        <img src="https://rgbcustompc.com/cdn/shop/files/SY-PCBuild-FrostNov2023.png?v=1703786732" alt="Снимка">
+        <img [src]="configuration.img" alt="Снимка">
         <div class="description">
-            <p>Процесор</p>
-            <p>Видео карта</p>
-            <p>RAM памет</p>
-            <p>Дънна платка:</p>
-            <p>Памет:</p>
-            <p>Захранване:</p>
-            <p>Охлаждане:</p>
-            <p>Кутия:</p>
-            <p>Описание:</p>
+            <p>Процесор: {{configuration.procesors}}</p>
+            <p>Видео карта: {{configuration.video_cart}}</p>
+            <p>RAM памет: {{configuration.ram_memories}}</p>
+            <p>Дънна платка: {{configuration.mother_board}}</p>
+            <p>Памет: {{configuration.memories}}</p>
+            <p>Захранване: {{configuration.power_supply}}</p>
+            <p>Охлаждане: {{configuration.cooling}}</p>
+            <p>Кутия: {{configuration.computer_case}}</p>
+            <p>Описание: {{configuration.description}}</p>
             <div class="buttons">
                 <button class="edit">Редактирай</button>
                 <button class="delete">Изтрий</button>

@@ -5,9 +5,11 @@ import { AddConfigurationComponent } from "./add-configuration/add-configuration
 import { ConfigurationComponent } from "./configuration/configuration.component";
 
 const routes: Routes = [
-    {path: 'main', component: MainComponent},
+    {path: 'configurations', children:[
+        {path: '', pathMatch:'full', component: MainComponent},
+        {path: ':id', component: ConfigurationComponent}
+    ]},
     {path: 'create-configuration', component: AddConfigurationComponent},
-    {path: 'main-configuraton', component: ConfigurationComponent}
 ]
 
 @NgModule({

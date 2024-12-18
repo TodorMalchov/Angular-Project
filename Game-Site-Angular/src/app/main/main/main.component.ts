@@ -15,11 +15,12 @@ export class MainComponent implements OnInit {
 
   constructor(private postService: PostService, private userService: UserService){}
   ngOnInit(): void {
+
     this.postService.getConfigurations().subscribe(res =>{
       this.configurations = res.map((e: any) =>{
         const data = e.payload.doc.data()
         data.id = e.payload.doc.id
-        console.log(data)
+        console.log(data.id)
         return data
       })
     },err=>{

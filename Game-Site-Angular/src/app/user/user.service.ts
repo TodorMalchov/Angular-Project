@@ -34,7 +34,7 @@ login(email:string, password: string):Observable<void>{
     this.firebaseAuth,
     email,
     password).then(()=>{
-      this.router.navigate(['/main'])
+      this.router.navigate(['/configurations'])
     },err=>{
       if(email == ''){
         alert('Нещо се обърка, !')

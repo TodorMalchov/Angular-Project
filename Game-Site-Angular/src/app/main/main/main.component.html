@@ -1,7 +1,7 @@
 <main>
     <section class="gallery">
-        <div class="gallery-item" *ngFor="let configuration of configurations">
-            <img src="https://api.technopolis.bg/medias/503567.jpg-Listing-grid?context=bWFzdGVyfHJvb3R8NDQyMjh8aW1hZ2UvanBlZ3xhR1E0TDJneVpDOHpNekl6TWpZek56YzFOVFF5TWk1cWNHY3xlNDYwYWQyNzc2ODY3ODg5YTBlYjQ4NTU0YzFhYzE4NTg3NThiNmVjNDVlMzI0Mzc5OTQxYjY5OGQ4OTQ2MTA4" alt="Описание на снимката 1">
+        <div class="gallery-item" *ngFor="let configuration of configurations" [routerLink]="['/configurations', configuration.id]">
+            <img [src]="configuration.img"/>
             <p>Процесор: {{configuration.procesors}}</p>
             <p>Видео карта {{configuration.video_cart}}</p>
             <p>RAM {{configuration.ram_memories}}</p>

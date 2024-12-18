@@ -28,6 +28,6 @@ public coolingForm: FormGroup
     }
 
     this.addComponentService.addCooling(this.coolingForm.value)
-    this.router.navigate(['/main'])
+    this.router.navigate(['/cooling'])
   }
 }

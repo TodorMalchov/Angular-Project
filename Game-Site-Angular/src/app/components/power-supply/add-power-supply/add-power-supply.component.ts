@@ -27,6 +27,6 @@ public powerSupplyForm: FormGroup
     }
 
     this.addComponentService.addPowerSupply(this.powerSupplyForm.value)
-    this.router.navigate(['/main'])
+    this.router.navigate(['/power-supply'])
   }
 }

@@ -36,7 +36,7 @@ export class AddConfigurationComponent {
     }
 
     this.postService.addConfiguration(this.configurationForm.value)
-    this.router.navigate(['/main'])
+    this.router.navigate(['/configurations'])
   }
 
 }

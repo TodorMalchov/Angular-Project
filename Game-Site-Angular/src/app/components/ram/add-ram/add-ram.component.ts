@@ -27,6 +27,6 @@ public ramForm: FormGroup
     }
 
     this.addComponentService.addRam(this.ramForm.value)
-    this.router.navigate(['/main'])
+    this.router.navigate(['/ram'])
   }
 }

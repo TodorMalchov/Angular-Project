@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore'
 import { Router } from '@angular/router';
 import { Configurations } from '../shared/types/configurations';
+import { map, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +24,50 @@ export class PostService {
   }
   getConfigurations(){
     return this.angularFireStore.collection('computers').snapshotChanges()
+  }
+
+  // getConfiguration(id: string):Observable<Configurations>{
+  //   return this.angularFireStore.doc<Configurations>(`configurations/${id}`)
+  //       .snapshotChanges()
+  //       .pipe(
+  //         map((action: any)=>{
+  //           if(action.payload.exists === false){
+  //             return new Object as Configurations
+  //           }else{
+  //             const data= action.payload.data() as Configurations
+  //             data.id = action.payload.id
+  //             return data
+  //           }
+  //         })
+  //       )
+  // }
+
+  getConfiguration(id: string): Observable<Configurations> {
+    return this.angularFireStore.doc<Configurations>(`/computers/${id}`)
+      .snapshotChanges()
+      .pipe(
+        map((action: any) => {
+          if (!action.payload.exists) {
+            console.warn(`Конфигурация с ID ${id} не съществува.`);
+            return {
+              id: '',
+              procesors: '',
+              video_cart: '',
+              ram_memories: '',
+              mother_board: '',
+              memories: '',
+              power_supply: '',
+              cooling: '',
+              computer_case: '',
+              img: '',
+              description: ''
+            } as Configurations;
+          } else {
+            const data = action.payload.data() as Configurations;
+            return { ...data, id: action.payload.id };
+          }
+        })
+      );
   }
   
   updateConfigurations(configurations: Configurations){
