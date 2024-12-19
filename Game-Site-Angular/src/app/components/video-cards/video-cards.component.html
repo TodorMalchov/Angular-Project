@@ -1,10 +1,12 @@
 <main>
     <section class="gallery">
-        <div class="gallery-item" *ngFor="let c of components">
+        <div class="gallery-item" *ngFor="let c of components" [routerLink]="['/video-cards', c.id]">
             <img [src]="c.img" alt="Описание на снимката 2">
             <p>{{c.videoCardModel}}</p>
             <p>{{c.description}}</p>
         </div>
-        <button class="create" *ngIf="(user$ | async)" routerLink="/video-cards/add-video-card">Добави видео карта</button>
+        <ng-template appShowIfAdmin>
+            <button class="create"  routerLink="/video-cards/add-video-card">Добави видео карта</button>
+        </ng-template>
     </section>
 </main>

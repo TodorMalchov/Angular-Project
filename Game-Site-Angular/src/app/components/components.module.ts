@@ -26,6 +26,14 @@ import { UpdateRamComponent } from './ram/update-ram/update-ram.component';
 import { UpdateVideoCardsComponent } from './video-cards/update-video-cards/update-video-cards.component';
 import { AddVideoCardsComponent } from './video-cards/add-video-cards/add-video-cards.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CurrentCaseComponent } from './cases/current-case/current-case.component';
+import { CurrentCoolingComponent } from './cooling/current-cooling/current-cooling.component';
+import { CurrentMemoComponent } from './memories/current-memo/current-memo.component';
+import { CurrentPowerSupplyComponent } from './power-supply/current-power-supply/current-power-supply.component';
+import { CurrentProcesorComponent } from './procesors/current-procesor/current-procesor.component';
+import { CurrentRamComponent } from './ram/current-ram/current-ram.component';
+import { CurrentVideoCardComponent } from './video-cards/current-video-card/current-video-card.component';
+import { DirectivesModule } from '../directives/directives.module';
 
 
 
@@ -54,12 +62,20 @@ import { ReactiveFormsModule } from '@angular/forms';
     AddRamComponent,
     UpdateRamComponent,
     UpdateVideoCardsComponent,
-    AddVideoCardsComponent
+    AddVideoCardsComponent,
+    CurrentCaseComponent,
+    CurrentCoolingComponent,
+    CurrentMemoComponent,
+    CurrentPowerSupplyComponent,
+    CurrentProcesorComponent,
+    CurrentRamComponent,
+    CurrentVideoCardComponent
   ],
   imports: [
     CommonModule,
     ComponentsRoutingModul,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    DirectivesModule
   ]
 })
 export class ComponentsModule { }

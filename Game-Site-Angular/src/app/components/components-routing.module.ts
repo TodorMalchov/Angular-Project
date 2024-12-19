@@ -16,6 +16,14 @@ import { AddMemoriesComponent } from "./memories/add-memories/add-memories.compo
 import { AddPowerSupplyComponent } from "./power-supply/add-power-supply/add-power-supply.component";
 import { AddCaseComponent } from "./cases/add-case/add-case.component";
 import { AddCoolingComponent } from "./cooling/add-cooling/add-cooling.component";
+import { CurrentCoolingComponent } from "./cooling/current-cooling/current-cooling.component";
+import { CurrentCaseComponent } from "./cases/current-case/current-case.component";
+import { CurrentPowerSupplyComponent } from "./power-supply/current-power-supply/current-power-supply.component";
+import { CurrentMemoComponent } from "./memories/current-memo/current-memo.component";
+import { CurrentRamComponent } from "./ram/current-ram/current-ram.component";
+import { CurrentProcesorComponent } from "./procesors/current-procesor/current-procesor.component";
+import { CurrentVideoCardComponent } from "./video-cards/current-video-card/current-video-card.component";
+import { CurrentMotherBoardComponent } from "./mother-bords/current-mother-board/current-mother-board.component";
 
 
 const routes: Routes = [
@@ -27,6 +35,7 @@ const routes: Routes = [
     {path: 'power-supply', component: PowerSupplyComponent},
     {path: 'computer_case', component: CasesComponent},
     {path: 'cooling', component: CoolingComponent},
+
     {path: 'procesors/add-procesors', component: AddProcesorsComponent},
     {path: 'video-cards/add-video-card', component: AddVideoCardsComponent},
     {path: 'mother-bords/add-mother-board', component: AddMotherBoardComponent},
@@ -35,6 +44,15 @@ const routes: Routes = [
     {path: 'power-supply/add-power-supply', component: AddPowerSupplyComponent},
     {path: 'computer_case/add-computer_case', component: AddCaseComponent},
     {path: 'cooling/add-cooling', component: AddCoolingComponent},
+
+    {path: 'procesors/:id', component: CurrentProcesorComponent},
+    {path: 'video-cards/:id', component: CurrentVideoCardComponent},
+    {path: 'mother-bords/:id', component: CurrentMotherBoardComponent},
+    {path: 'ram/:id', component: CurrentRamComponent},
+    {path: 'memories/:id', component: CurrentMemoComponent},
+    {path: 'power-supply/:id', component: CurrentPowerSupplyComponent},
+    {path: 'computer_case/:id', component: CurrentCaseComponent},
+    {path: 'cooling/:id', component: CurrentCoolingComponent},
     
     
 ]

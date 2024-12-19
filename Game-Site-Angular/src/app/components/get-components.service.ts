@@ -29,12 +29,13 @@ export class GetComponentsService {
   getPowerSupply(){
     return this.angularFireStore.collection('power-supply').snapshotChanges()
   }
-  
   getCases(){
     return this.angularFireStore.collection('cases').snapshotChanges()
   }
   getCooling(){
     return this.angularFireStore.collection('cooling').snapshotChanges()
   }
+
+  
 
 }

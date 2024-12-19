@@ -1,11 +1,13 @@
 <main>
     <section class="gallery">
-        <div class="gallery-item" *ngFor="let component of components">
+        <div class="gallery-item" *ngFor="let component of components" [routerLink]="['/power-supply', component.id]">
             <img [src]="component.img" alt="Описание на снимката 2">
             <p>{{component.powerSupplyModel}}</p>
             <p>{{component.description}}</p>
         </div>
-        <button class="create" *ngIf="(user$ | async)" routerLink="/power-supply/add-power-supply">Добави захранване</button>
+        <ng-template appShowIfAdmin>
+            <button class="create"  routerLink="/power-supply/add-power-supply">Добави захранване</button>
+        </ng-template>
     </section>
 </main>
 

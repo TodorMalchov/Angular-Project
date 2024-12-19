@@ -13,6 +13,7 @@ import { ComponentsModule } from './components/components.module';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { getAuth, provideAuth } from '@angular/fire/auth';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { DirectivesModule } from './directives/directives.module';
 
 
 
@@ -28,6 +29,7 @@ import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
     MainModule,
     UserModule,
     ComponentsModule,
+    DirectivesModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,

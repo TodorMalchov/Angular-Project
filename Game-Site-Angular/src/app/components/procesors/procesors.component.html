@@ -1,11 +1,13 @@
 <main>
     <section class="gallery">
-        <div class="gallery-item" *ngFor="let c of components">
+        <div class="gallery-item" *ngFor="let c of components" [routerLink]="['/procesors', c.id]">
             <img [src]="c.img" alt="Описание на снимката 2">
             <p>{{c.procesorModel}}</p>
             <p>{{c.description}}</p>
         </div>
-        <button class="create" *ngIf="(user$ | async)" routerLink="/procesors/add-procesors">Добави процесор</button>
+        <ng-template appShowIfAdmin>
+            <button class="create"  routerLink="/procesors/add-procesors">Добави процесор</button>
+        </ng-template>
     </section>
 </main>
 

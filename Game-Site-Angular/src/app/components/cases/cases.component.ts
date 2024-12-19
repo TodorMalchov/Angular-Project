@@ -13,6 +13,7 @@ export class CasesComponent implements OnInit {
   components: Case[] = []
   constructor(private getComponentService : GetComponentsService, private userService: UserService){}
   ngOnInit(): void {
+    
     this.getComponentService.getCases().subscribe(res =>{
       this.components = res.map((e: any) =>{
         const data = e.payload.doc.data()

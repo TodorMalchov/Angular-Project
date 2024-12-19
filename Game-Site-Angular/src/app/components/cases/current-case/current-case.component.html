@@ -1,0 +1,38 @@
+<div class="container" *ngIf="case">
+    <div class="profile">
+        <img [src]="case.img" alt="Снимка">
+        <div class="description">
+            <p>Модел: {{case.caseModel}}</p>
+            <p>Описание: {{case.description}}</p>
+            <ng-template appShowIfAdmin>
+                <div class="buttons">
+                    <button class="edit">Редактирай</button>
+                    <button class="delete">Изтрий</button>
+                </div>
+            </ng-template>
+        </div>
+    </div>
+
+    <div class="reviews">
+        <h2>Ревюта</h2>
+        <div class="review-item">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus atque officiis beatae enim, magnam ipsam, quasi aliquam illum mollitia eos neque explicabo? Ab earum voluptate corporis possimus, repudiandae dolor tenetur!
+            <div class="buttons">
+                <button class="edit">Редактирай</button>
+                <button class="delete">Изтрий</button>
+            </div>
+        </div>
+        <div class="review-item">Примерно ревю 2
+            <div class="buttons">
+                <button class="edit">Редактирай</button>
+                <button class="delete">Изтрий</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="add-review">
+        <h3>Добави ревю</h3>
+        <textarea placeholder="Напиши ревю тук..."></textarea>
+        <button>Публикувай</button>
+    </div>
+</div>
+

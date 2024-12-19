@@ -2,7 +2,7 @@ import {Injectable, inject, signal } from '@angular/core';
 import {AngularFireAuth} from '@angular/fire/compat/auth'
 import {Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, updateProfile, user} from '@angular/fire/auth'
 import { Router } from '@angular/router';
-import { from, Observable } from 'rxjs';
+import { BehaviorSubject, from, Observable } from 'rxjs';
 import { UserInterface } from './user.interface';
 
 @Injectable({
@@ -15,10 +15,32 @@ firebaseAuth = inject(Auth)
 // currentUserSignal = signal<UserInterface | null | undefined>(undefined)
 user$: Observable<any>
 
+private isAdminSubject = new BehaviorSubject<boolean>(false);
+isAdmin$ = this.isAdminSubject.asObservable();
+
 
 constructor(private fireAuth: AngularFireAuth, private router: Router) { 
   this.user$ = this.fireAuth.authState
+  this.fireAuth.authState.subscribe((user) => {
+    const isAdmin = user?.email === 'pesho@gmail.com';
+    this.isAdminSubject.next(isAdmin);
+  })
 }
+
+isAdmin: boolean = false
+
+// checkAdminPrivileges(): Observable<boolean> {
+//   return new Observable<boolean>((observer) => {
+//     this.fireAuth.authState.subscribe((user) => {
+//       if (user && user.email === 'pesho@gmail.com') {
+//         observer.next(true);
+//       } else {
+//         observer.next(false);
+//       }
+//       observer.complete();
+//     });
+//   });
+// }
 
 register(email:string,username:string,password:string):Observable<void>{
   const promise = createUserWithEmailAndPassword(
@@ -49,6 +71,7 @@ login(email:string, password: string):Observable<void>{
 
   logout():Observable<void>{
     const promise = signOut(this.firebaseAuth)
+    this.router.navigate(['/home'])
     return from(promise)
   }
 }

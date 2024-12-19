@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { PostService } from 'src/app/posts/post.service';
 import { Configurations } from 'src/app/shared/types/configurations';
 import { UserService } from 'src/app/user/user.service';
@@ -10,11 +11,16 @@ import { UserService } from 'src/app/user/user.service';
 })
 export class MainComponent implements OnInit {
   user$ = this.userService.user$
+  isAdmin: boolean = false
+  private adminSubscription!: Subscription
 
   configurations: Configurations[] = []
 
   constructor(private postService: PostService, private userService: UserService){}
   ngOnInit(): void {
+    this.adminSubscription = this.userService.isAdmin$.subscribe((isAdmin) => {
+      this.isAdmin = isAdmin;
+    })
 
     this.postService.getConfigurations().subscribe(res =>{
       this.configurations = res.map((e: any) =>{
@@ -26,6 +32,12 @@ export class MainComponent implements OnInit {
     },err=>{
       alert('Нещо се обърка, опитай отново!')
     })
+  }
+
+  ngOnDestroy(): void {
+    if (this.adminSubscription) {
+      this.adminSubscription.unsubscribe();
+    }
   }
 
 

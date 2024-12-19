@@ -26,21 +26,6 @@ export class PostService {
     return this.angularFireStore.collection('computers').snapshotChanges()
   }
 
-  // getConfiguration(id: string):Observable<Configurations>{
-  //   return this.angularFireStore.doc<Configurations>(`configurations/${id}`)
-  //       .snapshotChanges()
-  //       .pipe(
-  //         map((action: any)=>{
-  //           if(action.payload.exists === false){
-  //             return new Object as Configurations
-  //           }else{
-  //             const data= action.payload.data() as Configurations
-  //             data.id = action.payload.id
-  //             return data
-  //           }
-  //         })
-  //       )
-  // }
 
   getConfiguration(id: string): Observable<Configurations> {
     return this.angularFireStore.doc<Configurations>(`/computers/${id}`)
