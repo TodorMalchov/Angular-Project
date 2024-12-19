@@ -1,6 +1,6 @@
 <div class="form-container">
-    <form class="data-form" [formGroup]="ramForm" (ngSubmit)="createRam()">
-        <h2>Форма за добавяне</h2>
+    <form [formGroup]="ramForm" (ngSubmit)="createOrUpdate()">
+        <h2>{{ isEditMode ? 'Редакция на рам' : 'Добавяне на рам' }}</h2>
         <div class="form-group">
             <label for="field1">Модел на RAM-паметта:</label>
             <input type="text" id="field1" name="field1" formControlName="ramModel">

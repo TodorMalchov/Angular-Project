@@ -55,9 +55,8 @@ export class PostService {
       );
   }
   
-  updateConfigurations(configurations: Configurations){
-    this.deleteConfigurations(configurations)
-    this.addConfiguration(configurations)
+  updateConfiguration(configuration: any) {
+    return this.angularFireStore.collection('computers').doc(configuration.id).update(configuration);
   }
 
   deleteConfigurations(configurations: Configurations){

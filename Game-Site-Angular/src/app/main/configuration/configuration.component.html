@@ -11,10 +11,12 @@
             <p>Охлаждане: {{configuration.cooling}}</p>
             <p>Кутия: {{configuration.computer_case}}</p>
             <p>Описание: {{configuration.description}}</p>
-            <div class="buttons">
-                <button class="edit">Редактирай</button>
-                <button class="delete">Изтрий</button>
-            </div>
+            <ng-template appShowIfAdmin> 
+                <div class="buttons">
+                    <button [routerLink]="['/edit-configuration', configuration.id]" class="edit">Редактирай</button>
+                    <button class="delete">Изтрий</button>
+                </div>
+            </ng-template>
         </div>
     </div>
 

@@ -1,6 +1,7 @@
 <div class="form-container">
-    <form class="data-form" [formGroup]="motherBoardForm" (ngSubmit)="createMotherBoard()">
-        <h2>Форма за добавяне</h2>
+    
+    <form [formGroup]="motherBoardForm" (ngSubmit)="createOrUpdate()">
+        <h2>{{ isEditMode ? 'Редакция на дънна платка' : 'Добавяне на дънна платка' }}</h2>
         <div class="form-group">
             <label for="field1">Модел на дънната платка:</label>
             <input type="text" id="field1" name="field1" formControlName="motherBoardModel">

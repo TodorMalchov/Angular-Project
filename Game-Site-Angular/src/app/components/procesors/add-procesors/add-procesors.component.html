@@ -1,6 +1,7 @@
 <div class="form-container">
-    <form class="data-form" [formGroup]="procesorForm" (ngSubmit)="createProcesor()">
-        <h2>Форма за добавяне</h2>
+    
+    <form [formGroup]="procesorForm" (ngSubmit)="createOrUpdateProcesor()">
+    <h2>{{ isEditMode ? 'Редакция на процесор' : 'Добавяне на процесор' }}</h2>
         <div class="form-group">
             <label for="field1">Модел на процесора:</label>
             <input type="text" id="field1" name="field1" formControlName="procesorModel">

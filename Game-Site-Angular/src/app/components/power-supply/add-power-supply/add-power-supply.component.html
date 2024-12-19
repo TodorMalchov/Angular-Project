@@ -1,6 +1,6 @@
 <div class="form-container">
-    <form class="data-form" [formGroup]="powerSupplyForm" (ngSubmit)="createPowerSupply()">
-        <h2>Форма за добавяне</h2>
+    <form [formGroup]="powerSupplyForm" (ngSubmit)="createOrUpdate()">
+        <h2>{{ isEditMode ? 'Редакция на захранване' : 'Добавяне на захранване' }}</h2>
         <div class="form-group">
             <label for="field1">Модела на захранване: </label>
             <input type="text" id="field1" name="field1" formControlName="powerSupplyModel">

@@ -54,6 +54,14 @@ const routes: Routes = [
     {path: 'computer_case/:id', component: CurrentCaseComponent},
     {path: 'cooling/:id', component: CurrentCoolingComponent},
     
+    { path: 'edit-video-card/:id', component: AddVideoCardsComponent },
+    {path: 'edit-procesors/:id', component: AddProcesorsComponent},
+    {path: 'edit-mother-bords/:id', component: AddMotherBoardComponent},
+    {path: 'edit-ram/:id', component: AddRamComponent},
+    {path: 'edit-memories/:id', component: AddMemoriesComponent},
+    {path: 'edit-power-supply/:id', component: AddPowerSupplyComponent},
+    {path: 'edit-computer_case/:id', component: AddCaseComponent},
+    {path: 'edit-cooling/:id', component: AddCoolingComponent},
     
 ]
 

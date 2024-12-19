@@ -6,7 +6,7 @@
             <p>Описание: {{procesor.description}}</p>
             <ng-template appShowIfAdmin>
                 <div class="buttons">
-                    <button class="edit">Редактирай</button>
+                    <button [routerLink]="['/edit-procesors',procesor.id]" class="edit">Редактирай</button>
                     <button class="delete">Изтрий</button>
                 </div>
             </ng-template>

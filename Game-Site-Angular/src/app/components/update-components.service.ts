@@ -12,21 +12,5 @@ export class AddComponentsService {
 
 
 
-  // addComponent(components: Components){
-  //   components.id = this.angularFireStore.createId()
-  //   return this.angularFireStore.collection('parts').add(components)
-  // }
-
-  // getComponent(){
-  //   return this.angularFireStore.collection('parts').snapshotChanges()
-  // }
-
-  // updateComponent(components: Components){
-  //   this.deleteComponent(components)
-  //   this.addComponent(components)
-  // }
-
-  // deleteComponent(components: Components){
-  //   this.angularFireStore.doc(`parts/${components.id}`).delete()
-  // }
+  
 }

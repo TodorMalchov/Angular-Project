@@ -6,7 +6,7 @@
             <p>Описание: {{videoCard.description}}</p>
             <ng-template appShowIfAdmin>
                 <div class="buttons">
-                    <button class="edit">Редактирай</button>
+                    <button [routerLink]="['/edit-video-card',videoCard.id]" class="edit">Редактирай</button>
                     <button class="delete">Изтрий</button>
                 </div>
             </ng-template>

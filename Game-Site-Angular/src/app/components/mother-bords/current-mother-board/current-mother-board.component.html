@@ -1,12 +1,12 @@
-<div class="container">
+<div class="container" *ngIf="motherBoard">
     <div class="profile">
         <img [src]="motherBoard.img" alt="Снимка">
         <div class="description">
             <p>Модел: {{motherBoard.motherBoardModel}}</p>
             <p>Описание: {{motherBoard.description}}</p>
             <ng-template appShowIfAdmin>
-                <div class="buttons">
-                    <button class="edit">Редактирай</button>
+                <div class="buttons" >
+                    <button [routerLink]="['/edit-mother-bords',motherBoard.id]" class="edit">Редактирай</button>
                     <button class="delete">Изтрий</button>
                 </div>
             </ng-template>

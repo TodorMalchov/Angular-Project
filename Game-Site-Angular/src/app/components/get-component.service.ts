@@ -170,4 +170,8 @@ export class GetComponentService {
           })
         );
     }
+
+    updateComponent(colection: string ,configuration: any) {
+      return this.angularFireStore.collection(`${colection}`).doc(configuration.id).update(configuration);
+    }
 }

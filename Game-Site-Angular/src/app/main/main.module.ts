@@ -5,6 +5,7 @@ import { AddConfigurationComponent } from './add-configuration/add-configuration
 import { MainRoutingModule } from './main-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ConfigurationComponent } from './configuration/configuration.component';
+import { DirectivesModule } from '../directives/directives.module';
 
 
 
@@ -18,6 +19,7 @@ import { ConfigurationComponent } from './configuration/configuration.component'
   imports: [
     CommonModule,
     MainRoutingModule,
+    DirectivesModule,
     ReactiveFormsModule
   ],
   exports:[

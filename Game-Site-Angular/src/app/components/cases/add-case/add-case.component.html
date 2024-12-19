@@ -1,6 +1,7 @@
 <div class="form-container">
-    <form class="data-form" [formGroup]="caseForm" (ngSubmit)="createCase()">
-        <h2>Форма за добавяне</h2>
+    
+    <form [formGroup]="caseForm" (ngSubmit)="createOrUpdate()">
+        <h2>{{ isEditMode ? 'Редактиране на кутията' : 'Добавяне на кутия' }}</h2>
         <div class="form-group">
             <label for="field1">Модел на кутията:</label>
             <input type="text" id="field1" name="field1" formControlName="caseModel">

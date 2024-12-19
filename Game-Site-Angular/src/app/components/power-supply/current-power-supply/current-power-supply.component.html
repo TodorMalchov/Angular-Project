@@ -6,7 +6,7 @@
             <p>Описание: {{powerSupply.description}}</p>
             <ng-template appShowIfAdmin>
                 <div class="buttons">
-                    <button class="edit">Редактирай</button>
+                    <button [routerLink]="['/edit-power-supply',powerSupply.id]" class="edit">Редактирай</button>
                     <button class="delete">Изтрий</button>
                 </div>
             </ng-template>

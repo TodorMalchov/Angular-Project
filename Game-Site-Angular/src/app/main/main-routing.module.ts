@@ -10,6 +10,7 @@ const routes: Routes = [
         {path: ':id', component: ConfigurationComponent}
     ]},
     {path: 'create-configuration', component: AddConfigurationComponent},
+    { path: 'edit-configuration/:id', component: AddConfigurationComponent }
 ]
 
 @NgModule({

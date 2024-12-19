@@ -1,6 +1,7 @@
 <div class="form-container">
-    <form class="data-form" [formGroup]="videoCardForm" (ngSubmit)="createVideoCard()">
-        <h2>Форма за добавяне</h2>
+    
+    <form [formGroup]="videoCardForm" (ngSubmit)="createOrUpdateVideoCard()">
+    <h2>{{ isEditMode ? 'Редакция на видеокарта' : 'Добавяне на видеокарта' }}</h2>
         <div class="form-group">
             <label for="field1">Модел на видео карта:</label>
             <input type="text" id="field1" name="field1" formControlName="videoCardModel">

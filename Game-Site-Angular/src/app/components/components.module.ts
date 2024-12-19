@@ -34,6 +34,7 @@ import { CurrentProcesorComponent } from './procesors/current-procesor/current-p
 import { CurrentRamComponent } from './ram/current-ram/current-ram.component';
 import { CurrentVideoCardComponent } from './video-cards/current-video-card/current-video-card.component';
 import { DirectivesModule } from '../directives/directives.module';
+import { CurrentMotherBoardComponent } from './mother-bords/current-mother-board/current-mother-board.component';
 
 
 
@@ -69,7 +70,8 @@ import { DirectivesModule } from '../directives/directives.module';
     CurrentPowerSupplyComponent,
     CurrentProcesorComponent,
     CurrentRamComponent,
-    CurrentVideoCardComponent
+    CurrentVideoCardComponent,
+    CurrentMotherBoardComponent
   ],
   imports: [
     CommonModule,
