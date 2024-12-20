@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { PostService } from 'src/app/posts/post.service';
 import { Configurations } from 'src/app/shared/types/configurations';
 
@@ -24,7 +24,7 @@ export class ConfigurationComponent implements OnInit{
     description: ''
   };
 
-  constructor(private activeRoute: ActivatedRoute, private postService: PostService) {}
+  constructor(private activeRoute: ActivatedRoute, private postService: PostService,private router: Router) {}
 
   ngOnInit(): void {
     this.id = this.activeRoute.snapshot.paramMap.get('id') as string;
@@ -48,6 +48,17 @@ export class ConfigurationComponent implements OnInit{
     })
 
     console.log('ID:', this.id);
+  }
+
+  deleteConfiguration(id: string): void {
+    if (confirm('Сигурни ли сте, че искате да изтриете този елемент?')) {
+      this.postService.deleteConfiguration(id).subscribe(() => {
+        // Пренасочване след изтриване
+        this.router.navigate(['/configurations']);
+      }, error => {
+        console.error('Грешка при изтриването на елемента:', error);
+      });
+    }
   }
 
 }

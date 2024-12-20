@@ -7,7 +7,7 @@
             <ng-template appShowIfAdmin>
                 <div class="buttons">
                     <button [routerLink]="['/edit-ram',ram.id]" class="edit">Редактирай</button>
-                    <button class="delete">Изтрий</button>
+                    <button (click)="deleteConfiguration(ram.id)" class="delete">Изтрий</button>
                 </div>
             </ng-template>
         </div>

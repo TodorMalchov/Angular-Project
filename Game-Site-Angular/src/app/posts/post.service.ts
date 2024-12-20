@@ -19,6 +19,7 @@ export class PostService {
     configurations.id = this.angularFireStore.createId()
     return new Promise<Configurations>((resolve, reject)=>{
       this.angularFireStore.collection('computers').add(configurations).then(response => {console.log(response)}, err => reject)
+      this.router.navigate(['/configurations'])
     })
 
   }
@@ -59,8 +60,14 @@ export class PostService {
     return this.angularFireStore.collection('computers').doc(configuration.id).update(configuration);
   }
 
-  deleteConfigurations(configurations: Configurations){
-    return this.angularFireStore.doc(`computers/${configurations.id}`).delete()
+  deleteConfiguration(id: string): Observable<void> {
+    return new Observable((observer) => {
+      this.angularFireStore.collection('computers').doc(id).delete().then(() => {
+        observer.next();
+        observer.complete();
+      }).catch(error => {
+        observer.error(error);
+      });
+    });
   }
-
 }

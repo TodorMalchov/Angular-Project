@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { GetComponentService } from '../../get-component.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Case } from 'src/app/shared/types/components';
+import { DeleteComponentsService } from '../../delete-components.service';
 
 @Component({
   selector: 'app-current-case',
@@ -9,6 +10,7 @@ import { Case } from 'src/app/shared/types/components';
   styleUrls: ['./current-case.component.css']
 })
 export class CurrentCaseComponent implements OnInit{
+  collection:string = ''
   id: string = ''
    case: Case = {
       id: '',
@@ -17,7 +19,7 @@ export class CurrentCaseComponent implements OnInit{
       description: ''
     }
 
-  constructor(private gts: GetComponentService,private activeRoute: ActivatedRoute){}
+  constructor(private gts: GetComponentService,private activeRoute: ActivatedRoute,private deleteService: DeleteComponentsService,private router: Router){}
 
   ngOnInit(): void {
     this.id = this.activeRoute.snapshot.paramMap.get('id') as string;
@@ -41,5 +43,16 @@ export class CurrentCaseComponent implements OnInit{
     })
 
     console.log('ID:', this.id);
+  }
+  deleteConfiguration(id: string): void {
+    if (confirm('Сигурни ли сте, че искате да изтриете този елемент?')) {
+      this.collection = 'cases'
+      this.deleteService.deleteConfiguration(this.collection,id).subscribe(() => {
+        // Пренасочване след изтриване
+        this.router.navigate(['/computer_case']);
+      }, error => {
+        console.error('Грешка при изтриването на елемента:', error);
+      });
+    }
   }
 }

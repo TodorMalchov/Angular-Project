@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Memories } from 'src/app/shared/types/components';
 import { GetComponentService } from '../../get-component.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { DeleteComponentsService } from '../../delete-components.service';
 
 @Component({
   selector: 'app-current-memo',
@@ -9,6 +10,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./current-memo.component.css']
 })
 export class CurrentMemoComponent implements OnInit {
+  collection:string = ''
 id: string = ''
    memorie: Memories = {
       id: '',
@@ -17,7 +19,7 @@ id: string = ''
       description: ''
     }
 
-  constructor(private gts: GetComponentService,private activeRoute: ActivatedRoute){}
+  constructor(private gts: GetComponentService,private activeRoute: ActivatedRoute,private deleteService: DeleteComponentsService, private router:Router){}
 
   ngOnInit(): void {
     this.id = this.activeRoute.snapshot.paramMap.get('id') as string;
@@ -41,5 +43,16 @@ id: string = ''
     })
 
     console.log('ID:', this.id);
+  }
+  deleteConfiguration(id: string): void {
+    if (confirm('Сигурни ли сте, че искате да изтриете този елемент?')) {
+      this.collection = 'memories'
+      this.deleteService.deleteConfiguration(this.collection,id).subscribe(() => {
+        // Пренасочване след изтриване
+        this.router.navigate(['/memories']);
+      }, error => {
+        console.error('Грешка при изтриването на елемента:', error);
+      });
+    }
   }
 }
