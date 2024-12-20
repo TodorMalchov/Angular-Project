@@ -23,7 +23,6 @@
                 </ul>
             </li>
             <li><a routerLink="/configurations">Конфигурации</a></li>
-            <li><a href="#">Контакти</a></li>
             <li  *ngIf="(user$ | async)"><a type="button" (click)="logout()">Изход</a></li>
             <li class="right-btn" *ngIf="!(user$ | async)"><a routerLink="/login">Вход</a></li>
             <li class="right-btn" *ngIf="!(user$ | async)"><a routerLink="/register">Регистрация</a></li>
